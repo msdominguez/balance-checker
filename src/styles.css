@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bc-white: #F5F5F5;
+    --bc-neutral-4: #E9E9E9;
+    --bc-neutral-3: #E2E2E2;
+    --bc-neutral-2: #DADADA;
+    --bc-neutral-1: #717171;
+    --bc-black: #1D1D1D;
+    --bc-blue-1: #036F9D;
+}
