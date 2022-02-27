@@ -19,8 +19,36 @@ const getIsCardNumberSubmitted = createSelector(
   (state: BalancePageState): boolean => state.isCardNumberSubmitted
 );
 
+const getHasError = createSelector(
+  rootSelector,
+  (state: BalancePageState): boolean => state.hasError
+);
+
+const selectIsBalanceEmpty = createSelector(
+    getBalance,
+    (balance): boolean => balance === ''
+);
+
+const selectIsCardNumberSubmittedSuccessfully = createSelector(
+    getIsCardNumberSubmitted,
+    getHasError,
+    selectIsBalanceEmpty,
+    (isCardSubmitted, hasError, isBalanceEmpty): boolean => isCardSubmitted && !hasError && !isBalanceEmpty
+  );
+
+const selectHasNoBalance = createSelector(
+    getIsCardNumberSubmitted,
+    selectIsBalanceEmpty,
+    getHasError,
+    (isCardSubmitted, isBalanceEmpty, hasError): boolean => isCardSubmitted && isBalanceEmpty && !hasError
+  );
+
 export const Selectors = {
     getCardNumber,
     getBalance,
-    getIsCardNumberSubmitted
+    getIsCardNumberSubmitted,
+    getHasError,
+    selectIsBalanceEmpty,
+    selectIsCardNumberSubmittedSuccessfully,
+    selectHasNoBalance
 };

@@ -22,6 +22,18 @@ export class BalancePageAdapter {
     return this.store.select(Selectors.getIsCardNumberSubmitted);
   }
 
+  getHasError(): Observable<boolean> {
+    return this.store.select(Selectors.getHasError);
+  }
+
+  selectIsCardNumberSubmittedSuccessfully(): Observable<boolean> {
+    return this.store.select(Selectors.selectIsCardNumberSubmittedSuccessfully);
+  }
+
+  selectHasNoBalance(): Observable<boolean> {
+    return this.store.select(Selectors.selectHasNoBalance);
+  }
+
   submitCardNumber(): void {
     this.store.dispatch(Actions.submitCardNumber());
   }

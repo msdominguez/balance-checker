@@ -17,4 +17,12 @@ export const balancePageReducer = createReducer(
       ...state,
       isCardNumberSubmitted: true
     })),
+    on(Actions.getBalanceSuccess, state => ({
+      ...state,
+      hasError: false
+    })),
+    on(Actions.getBalanceFailure, state => ({
+      ...state,
+      hasError: true
+    })),
   );

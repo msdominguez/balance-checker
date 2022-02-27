@@ -1,0 +1,7 @@
+<div *ngIf="isCardNumberSubmittedSuccessfully$ | async">
+    <p>Balance:</p>
+    <p>{{balance$ | async}}</p>
+</div>
+
+<p *ngIf="hasNoBalance$ | async">No balance found for the card number entered.</p>
+<p *ngIf="hasError$ | async">Error retrieving balance.</p>

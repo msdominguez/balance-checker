@@ -28,3 +28,8 @@ button {
     color: var(--bc-white);
     cursor: pointer;
 }
+
+label {
+    color: var(--bc-black);
+    font-size: 13px;
+}
