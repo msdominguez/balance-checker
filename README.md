@@ -1,5 +1,18 @@
 # BalanceChecker
 
+Enter your 16-digit card number (PAN) to see your account balance.
+
+# Running Locally
+
+* Serve the front-end:
+1. `npm run start`
+2. Navigate to `http://localhost:4200`
+
+* Serve the back-end:
+1. `cd src/server`
+2. `node server`
+3. Server should be running on `http://localhost:1337`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
 ## Development server
