@@ -1,14 +1,13 @@
-import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AccountBalanceService {
-  constructor(private location: Location, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  fetchBalance(cardNumber: string): Observable<any> {
-    const url = this.location.prepareExternalUrl('/getBalance');
+  fetchBalance(cardNumber: string): Observable<string> {
+    const url = 'http://localhost:1337/getBalance';
     return this.http.get<string>(url, { params: { cardNumber: cardNumber || '' }});
   }
 }

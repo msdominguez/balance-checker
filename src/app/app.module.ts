@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '@components/components.module';
@@ -18,6 +19,7 @@ import { metaReducers, ROOT_REDUCER } from './redux';
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
+    HttpClientModule,
     StoreModule.forRoot(ROOT_REDUCER, {
       metaReducers, runtimeChecks: {
         strictStateImmutability: true,
