@@ -16,6 +16,7 @@
       "dom"
     ],
     "strict": true,
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
       "*": [
@@ -26,6 +27,12 @@
       ],
       "@pages/*": [
         "src/app/components/pages/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@redux/*": [
+        "src/app/redux/*"
       ],
     }
   },

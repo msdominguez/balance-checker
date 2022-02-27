@@ -1,1 +1,9 @@
-<app-card></app-card>
+<app-card *ngIf="isCardNumberSubmitted$ | async">
+    <p>Balance:</p>
+    <p>{{balance$ | async}}</p>
+</app-card>
+
+<app-card *ngIf="!(isCardNumberSubmitted$ | async)">
+    <input title="card number" placeholder="Enter your card number" [value]="cardNumber$ | async" (keyup)="updateCardNumber($event)" />
+    <button (click)="submitCardNumber()">See balance</button>
+</app-card>
