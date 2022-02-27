@@ -7,7 +7,8 @@
         "set-env:prod": "export NODE_ENV=production",
         "serve:dev": "npm run set-env:dev && concurrently \"ng serve\" \"node server.js\"",
         "start": "npm run set-env:prod && ng build --prod && node server.js",
-        "build": "ng build",
+        "serve": "node --max_old_space_size=2192 ./node_modules/@angular/cli/bin/ng serve",
+        "build": "node --max_old_space_size=2192 ./node_modules/@angular/cli/bin/ng build",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
