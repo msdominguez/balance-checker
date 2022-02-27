@@ -1,17 +1,26 @@
 # BalanceChecker
 
+[https://balance-checker-angular.herokuapp.com](https://balance-checker-angular.herokuapp.com)
+
 Enter your 16-digit card number (PAN) to see your account balance.
 
 # Running Locally
 
-* Serve the front-end:
+* Serve:dev
+1. `npm run serve:dev`
+2. Navigate to `http://localhost:4200`
+
+* Serve:prod (used for Heroku)
 1. `npm run start`
+2. Navigate to `http://localhost:8080`
+
+* Serve the front-end:
+1. `ng serve`
 2. Navigate to `http://localhost:4200`
 
 * Serve the back-end:
-1. `cd src/server`
-2. `node server`
-3. Server should be running on `http://localhost:1337`
+1. `node server.js`
+2. Server should be running on `http://localhost:8080`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
