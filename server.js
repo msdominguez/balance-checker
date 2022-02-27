@@ -1,13 +1,27 @@
+// this function is needed for Heroku
+function requireHTTPS(req, res, next) {
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+      return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
 var corsOptions = {
-  origin: "http://localhost:4200",
+  origin: ["http://localhost:4200", "http://localhost:8080", "https://balance-checker-angular.herokuapp.com"],
 };
+
+if (process.env.NODE_ENV === "production") {
+  app.use(requireHTTPS);
+}
+
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static("."));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("./dist/balance-checker"));
 
 const MongoClient = require("mongodb").MongoClient;
 const dbUser = "balancecheckertestdb";
@@ -17,6 +31,12 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+if (process.env.NODE_ENV === "production") {
+app.get("/*", function(req, res) {
+  res.sendFile("index.html", { root: "dist/balance-checker/" },
+  );
+});
+}
 
 app.get("/getBalance", async (req, resp) => {
   let collection = await client
@@ -44,5 +64,5 @@ client.connect((err) => {
   if (err) {
     process.exit(100);
   }
-  app.listen(process.env.PORT || 1337);
+  app.listen(process.env.PORT || 8080);
 });

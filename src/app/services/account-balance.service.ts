@@ -7,7 +7,7 @@ export class AccountBalanceService {
   constructor(private http: HttpClient) {}
 
   fetchBalance(cardNumber: string): Observable<string> {
-    const url = 'http://localhost:1337/getBalance';
+    const url = 'http://localhost:8080/getBalance';
     return this.http.get<string>(url, { params: { cardNumber: cardNumber || '' }});
   }
 }
