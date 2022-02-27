@@ -1,7 +1,7 @@
 // this function is needed for Heroku
 function requireHTTPS(req, res, next) {
-  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-      return res.redirect('https://' + req.get('host') + req.url);
+  if (!req.secure && req.get("x-forwarded-proto") !== "https") {
+      return res.redirect("https://" + req.get("host") + req.url);
   }
   next();
 }
@@ -56,7 +56,9 @@ app.get("/getBalance", async (req, resp) => {
       },
     ])
     .toArray();
+
   const balance = collection[0]?.userInfo[0]?.balance || "";
+
   return resp.json(balance);
 });
 
