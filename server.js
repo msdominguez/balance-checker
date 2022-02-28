@@ -57,7 +57,11 @@ app.get("/getBalance", async (req, resp) => {
     ])
     .toArray();
 
-  const balance = collection[0]?.userInfo[0]?.balance || "";
+  let balance = "";
+
+  if (collection[0]) {
+      balance = collection[0].userInfo[0] ? collection[0].userInfo[0].balance : "";
+    }
 
   return resp.json(balance);
 });

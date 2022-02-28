@@ -27,15 +27,15 @@
         "@ngrx/store": "^9.2.1",
         "cors": "^2.8.5",
         "express": "^4.17.3",
-        "mongodb": "^4.4.0",
-        "node": "^16.0.0",
+        "mongodb": "^3.7.3",
+        "node": "^12.22.10",
         "npm": "^8.5.2",
         "rxjs": "~6.5.4",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
     },
     "engines": {
-        "node": "^16.0.0"
+        "node": "^12.22.10"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.900.6",
